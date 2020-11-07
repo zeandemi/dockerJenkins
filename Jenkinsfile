@@ -15,7 +15,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                	app = docker.build("22piston/selenium-docker")
+                    bat	"app = docker.build("22piston/selenium-docker")"
                 }
             }
         }
