@@ -15,7 +15,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    bat	"docker.build("22piston/selenium-docker")"
+                    powershell	"docker build -t= '22piston/selenium-docker' ."
                 }
             }
         }
