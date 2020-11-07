@@ -23,8 +23,8 @@ pipeline {
             steps {
                 script {
 			        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-			        	app.push("${BUILD_NUMBER}")
-			            app.push("latest")
+			        	powershell "docker push 22piston/selenium-docker:'${BUILD_NUMBER}'"
+			            powershell "docker push 22piston/selenium-docker:latest"
 			        }
                 }
             }
