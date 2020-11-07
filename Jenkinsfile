@@ -15,14 +15,14 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                	app = any.build("22piston/selenium-docker")
+                	app = docker.build("22piston/selenium-docker")
                 }
             }
         }
         stage('Push Image') {
             steps {
                 script {
-			        any.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+			        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 			        	app.push("${BUILD_NUMBER}")
 			            app.push("latest")
 			        }
